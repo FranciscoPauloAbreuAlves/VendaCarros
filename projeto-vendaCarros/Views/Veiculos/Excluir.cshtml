@@ -1,0 +1,72 @@
+﻿@model projeto_vendaCarros.Models.VeiculosModel
+@using projeto_vendaCarros.Models
+
+<h2>@ViewBag.Title</h2>
+<h3 class="badge bg-secondary">@ViewBag.Message</h3>
+
+@using (Html.BeginForm("Excluir", "Veiculos", FormMethod.Post))
+{
+    <input type="hidden" id="id" name="id" value="@Model.Id" />
+    
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Nome, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Nome, new { @class = "form-control", @Value = Model.Nome })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Modelo, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Modelo, new { @class = "form-control", @Value = Model.Modelo })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+
+        @Html.LabelFor(Model => Model.Fabricacao, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Fabricacao, new { @class = "form-control", @Value = Model.Fabricacao })
+        </div>
+    </div>
+    <div class="row col-md-offset-3">
+
+        @Html.LabelFor(Model => Model.Cor, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Cor, new { @class = "form-control", @Value = Model.Cor })
+        </div>
+    </div>
+    <div class="row col-md-offset-3">
+
+        @Html.LabelFor(Model => Model.Combustivel, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Combustivel, new { @class = "form-control", @Value = Model.Combustivel })
+        </div>
+    </div>
+    <div class="row col-md-offset-3">
+
+        @Html.LabelFor(Model => Model.Automatico, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Automatico, new { @class = "form-control", @Value = Model.Automatico })
+        </div>
+    </div>
+    <div class="row col-md-offset-3">
+
+        @Html.LabelFor(Model => Model.Valor, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Valor, new { @class = "form-control", @Value = Model.Valor })
+        </div>
+    </div>
+    <div class="row col-md-offset-3">
+
+        @Html.LabelFor(Model => Model.Ativo, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(Model => Model.Ativo, new { @class = "form-control", @Value = Model.Ativo })
+        </div>
+    </div>
+
+    <br />
+    <div class="button">
+        <button class="btn btn-danger" type="submit">Excluir</button>
+    </div>
+}

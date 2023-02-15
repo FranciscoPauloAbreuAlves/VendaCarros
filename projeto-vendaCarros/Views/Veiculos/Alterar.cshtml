@@ -1,0 +1,86 @@
+﻿@model projeto_vendaCarros.Models.VeiculosModel
+@using projeto_vendaCarros.Models
+
+<h2>@ViewBag.Title</h2>
+<h3 class="badge bg-secondary">@ViewBag.Message</h3>
+
+@using (Html.BeginForm("Salvar", "Veiculos", FormMethod.Post))
+{
+    <input type="hidden" id="id" name="id" value="@Model.Id" />
+    
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Nome, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.TextBoxFor(Model => Model.Nome, new { @class = "form-control", @Value = Model.Nome })
+            @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Modelo, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.TextBoxFor(Model => Model.Modelo, new { @class = "form-control", @Value = Model.Modelo })
+            @Html.ValidationMessageFor(Model => Model.Modelo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Ano, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.TextBoxFor(Model => Model.Ano, new { @class = "form-control", @Value = Model.Ano })
+            @Html.ValidationMessageFor(Model => Model.Ano, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Fabricacao, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.TextBoxFor(Model => Model.Fabricacao, new { @class = "form-control", @Value = Model.Fabricacao })
+            @Html.ValidationMessageFor(Model => Model.Fabricacao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Cor, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.TextBoxFor(Model => Model.Cor, new { @class = "form-control", @Value = Model.Cor })
+            @Html.ValidationMessageFor(Model => Model.Cor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Combustivel, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.DropDownListFor(Model => Model.Combustivel, Combustivel.Diesel.ToSelectList((int)Model.Combustivel), "Selecione um tipo de combustível", new { @class = "form-control" })
+            @Html.ValidationMessageFor(Model => Model.Combustivel, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Automatico, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.DropDownListFor(Model => Model.Automatico, Automatico.Não.ToSelectList((int)Model.Automatico), "Informe se o câmbio é automático ou não", new { @class = "form-control" })
+            @Html.ValidationMessageFor(Model => Model.Automatico, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Valor, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.TextBoxFor(Model => Model.Valor, new { @class = "form-control", @Value = Model.Valor.ToString("#0.00") })
+            @Html.ValidationMessageFor(Model => Model.Valor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row col-md-offset-3">
+        @Html.LabelFor(Model => Model.Ativo, new { @class = "col-sm-4 col-form-label text-right" })
+        <div class="col-sm-5">
+            @Html.TextBoxFor(Model => Model.Ativo, new { @class = "form-control", @Value = Model.Ativo })
+            @Html.ValidationMessageFor(Model => Model.Ativo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br />
+    <div class="button">
+        <button class="btn btn-secondary" type="submit">Alterar</button>
+    </div>
+}
